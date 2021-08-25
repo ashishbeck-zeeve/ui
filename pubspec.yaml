@@ -24,7 +24,9 @@ dependencies:
     git:
       url: https://github.com/polkawallet-io/flutter_qr_reader.git
       ref: a125851ca20038767ac4efa2e20d12116a390414
-  polkawallet_sdk: ^0.2.5
+  polkawallet_sdk:
+    git:
+      url: https://github.com/ashishbeck/sdk.git
 #  polkawallet_sdk:
 #    path: ../sdk
 
