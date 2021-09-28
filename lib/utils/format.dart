@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:intl/intl.dart';
-import 'package:polkawallet_sdk/api/types/balanceData.dart';
+import 'package:axiawallet_sdk/api/types/balanceData.dart';
 
 class Fmt {
   static String dateTime(DateTime time) {

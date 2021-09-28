@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_ui/components/roundedCard.dart';
+import 'package:axiawallet_ui/components/roundedCard.dart';
 
 class EntryPageCard extends StatelessWidget {
   EntryPageCard(this.title, this.brief, this.icon, {this.color});

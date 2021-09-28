@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
 
 class ListTail extends StatelessWidget {
   ListTail({this.isEmpty, this.isLoading});

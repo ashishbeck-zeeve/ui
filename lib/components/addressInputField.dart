@@ -1,11 +1,11 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/api/api.dart';
-import 'package:polkawallet_sdk/storage/types/keyPairData.dart';
-import 'package:polkawallet_ui/components/addressIcon.dart';
-import 'package:polkawallet_ui/utils/format.dart';
-import 'package:polkawallet_ui/utils/index.dart';
+import 'package:axiawallet_sdk/api/api.dart';
+import 'package:axiawallet_sdk/storage/types/keyPairData.dart';
+import 'package:axiawallet_ui/components/addressIcon.dart';
+import 'package:axiawallet_ui/utils/format.dart';
+import 'package:axiawallet_ui/utils/index.dart';
 
 class AddressInputField extends StatefulWidget {
   AddressInputField(
@@ -16,7 +16,7 @@ class AddressInputField extends StatefulWidget {
     this.onChanged,
     Key key,
   }) : super(key: key);
-  final PolkawalletApi api;
+  final AXIAWalletApi api;
   final List<KeyPairData> localAccounts;
   final String label;
   final KeyPairData initialValue;

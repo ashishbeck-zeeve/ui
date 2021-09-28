@@ -1,4 +1,4 @@
-library polkawallet_ui;
+library axiawallet_ui;
 
 import 'package:flutter/material.dart';
 

@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/api/api.dart';
-import 'package:polkawallet_sdk/storage/types/keyPairData.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
+import 'package:axiawallet_sdk/api/api.dart';
+import 'package:axiawallet_sdk/storage/types/keyPairData.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
 
 class PasswordInputDialog extends StatefulWidget {
   PasswordInputDialog(this.api,
       {this.account, this.userPass, this.title, this.content});
 
-  final PolkawalletApi api;
+  final AXIAWalletApi api;
   final KeyPairData account;
   final String userPass;
   final Widget title;

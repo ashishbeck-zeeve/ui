@@ -2,19 +2,19 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/plugin/index.dart';
-import 'package:polkawallet_sdk/storage/keyring.dart';
-import 'package:polkawallet_sdk/storage/types/keyPairData.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
-import 'package:polkawallet_sdk/webviewWithExtension/types/signExtrinsicParam.dart';
-import 'package:polkawallet_ui/components/addressFormItem.dart';
-import 'package:polkawallet_ui/components/infoItemRow.dart';
-import 'package:polkawallet_ui/utils/format.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/keyring.dart';
+import 'package:axiawallet_sdk/storage/types/keyPairData.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_sdk/webviewWithExtension/types/signExtrinsicParam.dart';
+import 'package:axiawallet_ui/components/addressFormItem.dart';
+import 'package:axiawallet_ui/components/infoItemRow.dart';
+import 'package:axiawallet_ui/utils/format.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
 
 class WalletExtensionSignPage extends StatefulWidget {
   WalletExtensionSignPage(this.plugin, this.keyring, this.getPassword);
-  final PolkawalletPlugin plugin;
+  final AXIAWalletPlugin plugin;
   final Keyring keyring;
   final Future<String> Function(BuildContext, KeyPairData) getPassword;
 

@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/plugin/index.dart';
-import 'package:polkawallet_sdk/storage/types/keyPairData.dart';
-import 'package:polkawallet_ui/components/addressIcon.dart';
-import 'package:polkawallet_ui/utils/format.dart';
-import 'package:polkawallet_ui/utils/index.dart';
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/types/keyPairData.dart';
+import 'package:axiawallet_ui/components/addressIcon.dart';
+import 'package:axiawallet_ui/utils/format.dart';
+import 'package:axiawallet_ui/utils/index.dart';
 
 class AccountSelectList extends StatelessWidget {
   AccountSelectList(this.plugin, this.list);
 
-  final PolkawalletPlugin plugin;
+  final AXIAWalletPlugin plugin;
   final List<KeyPairData> list;
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:polkawallet_ui/utils/index.dart';
+import 'package:axiawallet_ui/utils/index.dart';
 
 class AddressIcon extends StatelessWidget {
   AddressIcon(
@@ -23,7 +23,7 @@ class AddressIcon extends StatelessWidget {
         height: size ?? 40,
         child: svg == null
             ? Image.asset(
-                'packages/polkawallet_ui/assets/images/polkadot_avatar.png',
+                'packages/axiawallet_ui/assets/images/axiasolar_avatar.png',
                 bundle: rootBundle,
               )
             : SvgPicture.string(svg),

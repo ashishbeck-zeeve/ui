@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:polkawallet_sdk/storage/types/keyPairData.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
-import 'package:polkawallet_ui/utils/format.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
-import 'package:polkawallet_ui/utils/numberInputFormatter.dart';
+import 'package:axiawallet_sdk/storage/types/keyPairData.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_ui/utils/format.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
+import 'package:axiawallet_ui/utils/numberInputFormatter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UI {

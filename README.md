@@ -1,6 +1,6 @@
 # ui
 
-UI widgets for polkawallet app.
+UI widgets for axiawallet app.
 
 ## Getting Started
 

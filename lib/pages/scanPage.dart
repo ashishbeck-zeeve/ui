@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_qr_scan/qrcode_reader_view.dart';
 
 import 'package:permission_handler/permission_handler.dart';
-import 'package:polkawallet_sdk/plugin/index.dart';
-import 'package:polkawallet_sdk/storage/keyring.dart';
-import 'package:polkawallet_ui/utils/format.dart';
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/keyring.dart';
+import 'package:axiawallet_ui/utils/format.dart';
 
 class ScanPage extends StatelessWidget {
   ScanPage(this.plugin, this.keyring);
-  final PolkawalletPlugin plugin;
+  final AXIAWalletPlugin plugin;
   final Keyring keyring;
 
   static final String route = '/account/scan';

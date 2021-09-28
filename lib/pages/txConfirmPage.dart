@@ -3,23 +3,23 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/api/types/recoveryInfo.dart';
-import 'package:polkawallet_sdk/api/types/txInfoData.dart';
-import 'package:polkawallet_sdk/plugin/index.dart';
-import 'package:polkawallet_sdk/storage/keyring.dart';
-import 'package:polkawallet_sdk/storage/types/keyPairData.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
-import 'package:polkawallet_ui/components/addressFormItem.dart';
-import 'package:polkawallet_ui/components/tapTooltip.dart';
-import 'package:polkawallet_ui/components/txButton.dart';
-import 'package:polkawallet_ui/pages/accountListPage.dart';
-import 'package:polkawallet_ui/pages/qrSenderPage.dart';
-import 'package:polkawallet_ui/utils/format.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
+import 'package:axiawallet_sdk/api/types/recoveryInfo.dart';
+import 'package:axiawallet_sdk/api/types/txInfoData.dart';
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/keyring.dart';
+import 'package:axiawallet_sdk/storage/types/keyPairData.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_ui/components/addressFormItem.dart';
+import 'package:axiawallet_ui/components/tapTooltip.dart';
+import 'package:axiawallet_ui/components/txButton.dart';
+import 'package:axiawallet_ui/pages/accountListPage.dart';
+import 'package:axiawallet_ui/pages/qrSenderPage.dart';
+import 'package:axiawallet_ui/utils/format.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
 
 class TxConfirmPage extends StatefulWidget {
   const TxConfirmPage(this.plugin, this.keyring, this.getPassword);
-  final PolkawalletPlugin plugin;
+  final AXIAWalletPlugin plugin;
   final Keyring keyring;
   final Future<String> Function(BuildContext, KeyPairData) getPassword;
 
@@ -43,7 +43,7 @@ class _TxConfirmPageState extends State<TxConfirmPage> {
     if (_fee?.partialFee != null && !reload) {
       return _fee.partialFee.toString();
     }
-    if (widget.plugin.basic.name == 'kusama' &&
+    if (widget.plugin.basic.name == 'axialunar' &&
         (widget.keyring.current.observation ?? false)) {
       final recoveryInfo = await widget.plugin.sdk.api.recovery
           .queryRecoverable(widget.keyring.current.address);
@@ -100,8 +100,8 @@ class _TxConfirmPageState extends State<TxConfirmPage> {
         content: ListTile(
           leading: Container(
             width: 24,
-            child: Image.asset(
-                'packages/polkawallet_ui/assets/images/success.png'),
+            child:
+                Image.asset('packages/axiawallet_ui/assets/images/success.png'),
           ),
           title: Text(
             I18n.of(context).getDic(i18n_full_dic_ui, 'common')['success'],
@@ -302,7 +302,7 @@ class _TxConfirmPageState extends State<TxConfirmPage> {
     // final isNetworkMatch = widget.plugin.networkState.genesisHash ==
     //     widget.plugin.basic.genesisHash;
 
-    final bool isKusama = widget.plugin.basic.name == 'kusama';
+    final bool isAXIALunar = widget.plugin.basic.name == 'axialunar';
     final String symbol = (widget.plugin.networkState.tokenSymbol ?? [''])[0];
     final int decimals = (widget.plugin.networkState.tokenDecimals ?? [12])[0];
 
@@ -340,7 +340,7 @@ class _TxConfirmPageState extends State<TxConfirmPage> {
                             label: dic["tx.from"],
                           ),
                         ),
-                  isKusama && isObservation && _recoveryInfo?.address != null
+                  isAXIALunar && isObservation && _recoveryInfo?.address != null
                       ? Padding(
                           padding: EdgeInsets.only(left: 16, right: 16),
                           child: Row(

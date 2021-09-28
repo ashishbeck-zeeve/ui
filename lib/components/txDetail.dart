@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
-import 'package:polkawallet_ui/components/jumpToBrowserLink.dart';
-import 'package:polkawallet_ui/components/roundedCard.dart';
-import 'package:polkawallet_ui/utils/format.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
-import 'package:polkawallet_ui/utils/index.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_ui/components/jumpToBrowserLink.dart';
+import 'package:axiawallet_ui/components/roundedCard.dart';
+import 'package:axiawallet_ui/utils/format.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
+import 'package:axiawallet_ui/utils/index.dart';
 
 class TxDetail extends StatelessWidget {
   TxDetail({
@@ -79,7 +79,7 @@ class TxDetail extends StatelessWidget {
                         child: Padding(
                           padding: EdgeInsets.only(left: 8),
                           child: Image.asset(
-                            'packages/polkawallet_ui/assets/images/copy.png',
+                            'packages/axiawallet_ui/assets/images/copy.png',
                             width: 16,
                           ),
                         ),
@@ -93,7 +93,7 @@ class TxDetail extends StatelessWidget {
       ),
     ));
 
-    final pnLink = networkName == 'polkadot' || networkName == 'kusama'
+    final pnLink = networkName == 'axiasolar' || networkName == 'axialunar'
         ? 'https://polkascan.io/${networkName.toLowerCase()}/transaction/$hash'
         : null;
     final snLink =
@@ -185,7 +185,7 @@ class TxDetailItem extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(left: 8),
                     child: Image.asset(
-                      'packages/polkawallet_ui/assets/images/copy.png',
+                      'packages/axiawallet_ui/assets/images/copy.png',
                       width: 16,
                     ),
                   ),

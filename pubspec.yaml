@@ -1,7 +1,7 @@
-name: polkawallet_ui
-description: Common used Widgets for polkawallet app.
+name: axiawallet_ui
+description: Common used Widgets for axiawallet app.
 version: 0.2.5
-homepage: https://polkawallet.io
+homepage: https://axiawallet.io
 
 environment:
   sdk: ">=2.10.0 <3.0.0"
@@ -15,16 +15,16 @@ dependencies:
   dropdown_search: ^0.4.9
   url_launcher: ^6.0.4
   intl: ^0.17.0
-  qr_flutter:
+  qr_flutter_fork:
     git:
-      url: https://github.com/polkawallet-io/qr.flutter.git
+      url: https://github.com/ashishbeck/qr.flutter.git
       ref: master
   flutter_qr_scan:
 #    path: ../flutter_qr_reader
     git:
-      url: https://github.com/polkawallet-io/flutter_qr_reader.git
+      url: https://github.com/ashishbeck/flutter_qr_reader.git
       ref: a125851ca20038767ac4efa2e20d12116a390414
-  polkawallet_sdk:
+  axiawallet_sdk:
     git:
      url: https://github.com/ashishbeck/sdk.git
 
@@ -33,7 +33,7 @@ dev_dependencies:
     sdk: flutter
 
 dependency_overrides:
-  polkawallet_sdk:
+  axiawallet_sdk:
     path: ../sdk_fork
 
 # For information on the generic Dart part of this file, see the
@@ -43,7 +43,7 @@ dependency_overrides:
 flutter:
 
   assets:
-   - assets/images/polkadot_avatar.png
+   - assets/images/axiasolar_avatar.png
    - assets/images/success.png
    - assets/images/error.png
    - assets/images/copy.png

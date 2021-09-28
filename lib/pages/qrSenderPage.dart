@@ -3,14 +3,14 @@ import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:polkawallet_sdk/api/types/txInfoData.dart';
-import 'package:polkawallet_sdk/plugin/index.dart';
-import 'package:polkawallet_sdk/storage/keyring.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
-import 'package:polkawallet_ui/components/roundedButton.dart';
-import 'package:polkawallet_ui/pages/scanPage.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
-import 'package:qr_flutter/qr_flutter.dart';
+import 'package:axiawallet_sdk/api/types/txInfoData.dart';
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/keyring.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_ui/components/roundedButton.dart';
+import 'package:axiawallet_ui/pages/scanPage.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
+import 'package:qr_flutter_fork/qr_flutter_fork.dart';
 
 class QrSenderPageParams {
   QrSenderPageParams(this.txInfo, this.params, {this.rawParams});
@@ -21,7 +21,7 @@ class QrSenderPageParams {
 
 class QrSenderPage extends StatefulWidget {
   QrSenderPage(this.plugin, this.keyring);
-  final PolkawalletPlugin plugin;
+  final AXIAWalletPlugin plugin;
   final Keyring keyring;
 
   static const String route = 'tx/uos/sender';
@@ -89,7 +89,7 @@ class _QrSenderPageState extends State<QrSenderPage> {
                             padding: EdgeInsets.all(16),
                             child: RoundedButton(
                               icon: SvgPicture.asset(
-                                'packages/polkawallet_ui/assets/images/scan.svg',
+                                'packages/axiawallet_ui/assets/images/scan.svg',
                                 width: 28,
                                 color: Theme.of(context).cardColor,
                               ),

@@ -1,20 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/plugin/index.dart';
-import 'package:polkawallet_sdk/storage/keyring.dart';
-import 'package:polkawallet_ui/components/addressIcon.dart';
-import 'package:polkawallet_ui/components/roundedButton.dart';
-import 'package:polkawallet_ui/components/roundedCard.dart';
-import 'package:polkawallet_ui/components/textTag.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
-import 'package:polkawallet_ui/utils/index.dart';
-import 'package:qr_flutter/qr_flutter.dart';
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/keyring.dart';
+import 'package:axiawallet_ui/components/addressIcon.dart';
+import 'package:axiawallet_ui/components/roundedButton.dart';
+import 'package:axiawallet_ui/components/roundedCard.dart';
+import 'package:axiawallet_ui/components/textTag.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
+import 'package:axiawallet_ui/utils/index.dart';
+import 'package:qr_flutter_fork/qr_flutter_fork.dart';
 
-import 'package:polkawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
 
 class AccountQrCodePage extends StatelessWidget {
   AccountQrCodePage(this.plugin, this.keyring);
-  final PolkawalletPlugin plugin;
+  final AXIAWalletPlugin plugin;
   final Keyring keyring;
 
   static final String route = '/assets/receive';
@@ -73,7 +73,7 @@ class AccountQrCodePage extends StatelessWidget {
                       data: codeAddress,
                       size: qrWidth + 24,
                       embeddedImage: AssetImage(
-                          'packages/polkawallet_ui/assets/images/app.png'),
+                          'packages/axiawallet_ui/assets/images/app.png'),
                       embeddedImageStyle:
                           QrEmbeddedImageStyle(size: Size(40, 40)),
                     ),

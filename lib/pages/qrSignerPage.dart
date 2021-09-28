@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/plugin/index.dart';
-import 'package:polkawallet_sdk/storage/keyring.dart';
-import 'package:polkawallet_ui/components/addressFormItem.dart';
-import 'package:polkawallet_ui/components/textTag.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/keyring.dart';
+import 'package:axiawallet_ui/components/addressFormItem.dart';
+import 'package:axiawallet_ui/components/textTag.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
+import 'package:qr_flutter_fork/qr_flutter_fork.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
 
 class QrSignerPage extends StatelessWidget {
   QrSignerPage(this.plugin, this.keyring);
 
   static const String route = 'tx/uos/signer';
 
-  final PolkawalletPlugin plugin;
+  final AXIAWalletPlugin plugin;
   final Keyring keyring;
 
   @override

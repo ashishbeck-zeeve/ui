@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_ui/utils/index.dart';
+import 'package:axiawallet_ui/utils/index.dart';
 
 class JumpToBrowserLink extends StatefulWidget {
   JumpToBrowserLink(this.url, {this.text, this.mainAxisAlignment});

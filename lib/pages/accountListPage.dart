@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/plugin/index.dart';
-import 'package:polkawallet_sdk/storage/keyring.dart';
-import 'package:polkawallet_sdk/storage/types/keyPairData.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
-import 'package:polkawallet_ui/components/accountSelectList.dart';
-import 'package:polkawallet_ui/utils/i18n.dart';
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/keyring.dart';
+import 'package:axiawallet_sdk/storage/types/keyPairData.dart';
+import 'package:axiawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_ui/components/accountSelectList.dart';
+import 'package:axiawallet_ui/utils/i18n.dart';
 
 class AccountListPageParams {
   AccountListPageParams({this.list, this.title});
@@ -18,7 +18,7 @@ class AccountListPage extends StatelessWidget {
   AccountListPage(this.plugin, this.keyring);
 
   static final String route = '/profile/contacts/list';
-  final PolkawalletPlugin plugin;
+  final AXIAWalletPlugin plugin;
   final Keyring keyring;
 
   @override

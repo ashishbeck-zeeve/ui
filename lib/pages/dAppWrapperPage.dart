@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_sdk/plugin/index.dart';
-import 'package:polkawallet_sdk/storage/keyring.dart';
-import 'package:polkawallet_sdk/webviewWithExtension/webviewWithExtension.dart';
-import 'package:polkawallet_ui/pages/walletExtensionSignPage.dart';
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/keyring.dart';
+import 'package:axiawallet_sdk/webviewWithExtension/webviewWithExtension.dart';
+import 'package:axiawallet_ui/pages/walletExtensionSignPage.dart';
 
 class DAppWrapperPage extends StatefulWidget {
   DAppWrapperPage(this.plugin, this.keyring);
-  final PolkawalletPlugin plugin;
+  final AXIAWalletPlugin plugin;
   final Keyring keyring;
 
   static const String route = '/extension/app';
