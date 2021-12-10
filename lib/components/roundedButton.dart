@@ -8,7 +8,7 @@ class RoundedButton extends StatelessWidget {
     this.onPressed,
     this.icon,
     this.color,
-    this.borderRadius = 80,
+    this.borderRadius = 12,
     this.submitting = false,
   });
 

@@ -9,18 +9,18 @@ class BorderedTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          width: lineWidth,
-          height: 18,
-          margin: EdgeInsets.only(right: 8),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
-              color: Theme.of(context).primaryColor),
-        ),
+        // Container(
+        //   width: lineWidth,
+        //   height: 18,
+        //   margin: EdgeInsets.only(right: 8),
+        //   decoration: BoxDecoration(
+        //       borderRadius: BorderRadius.circular(4),
+        //       color: Theme.of(context).primaryColor),
+        // ),
         Text(
           title,
           style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black54),
+              fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black87),
         )
       ],
     );

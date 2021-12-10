@@ -93,7 +93,7 @@ class TxDetail extends StatelessWidget {
       ),
     ));
 
-    final pnLink = networkName == 'axiasolar' || networkName == 'axialunar'
+    final pnLink = networkName == 'axia' || networkName == 'axialunar'
         ? 'https://polkascan.io/${networkName.toLowerCase()}/transaction/$hash'
         : null;
     final snLink =

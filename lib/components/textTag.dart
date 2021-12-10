@@ -22,7 +22,7 @@ class TextTag extends StatelessWidget {
       padding: padding ?? EdgeInsets.fromLTRB(4, 2, 4, 2),
       decoration: BoxDecoration(
         color: color ?? Theme.of(context).primaryColor,
-        borderRadius: BorderRadius.all(Radius.circular(4)),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
     );
   }

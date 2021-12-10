@@ -29,9 +29,9 @@ class AddressFormItem extends StatelessWidget {
             : Container(),
         Container(
           margin: EdgeInsets.only(top: 4, bottom: 4),
-          padding: EdgeInsets.all(8),
+          padding: EdgeInsets.fromLTRB(8, 10, 8, 10),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(Radius.circular(15)),
             border:
                 Border.all(color: Theme.of(context).disabledColor, width: 0.5),
           ),

@@ -217,4 +217,8 @@ class Fmt {
     return priceFloor(Fmt.bigIntToDouble(value, decimals),
         lengthFixed: lengthFixed, lengthMax: lengthMax);
   }
+
+  static String capitalizeFirst(String text) {
+    return "${text[0].toUpperCase()}${text.substring(1)}";
+  }
 }

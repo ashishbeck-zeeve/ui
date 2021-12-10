@@ -26,13 +26,15 @@ class PageWrapperWithBackground extends StatelessWidget {
           height: height ?? 200,
           decoration: BoxDecoration(
               gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
             colors: [
-              Theme.of(context).primaryColor,
-              Theme.of(context).primaryColorDark
+              // Theme.of(context).primaryColor,
+              // Theme.of(context).primaryColorDark
+              Color(0xff178fe1),
+              Color(0xff007cbd)
             ],
-            stops: [0.6, 0.9],
+            stops: [0.1, 0.9],
           )),
         ),
         Container(

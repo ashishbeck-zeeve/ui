@@ -159,10 +159,12 @@ class _AddressInputFieldState extends State<AddressInputField> {
           ? null
           : BoxDecoration(
               border: Border.all(color: Theme.of(context).primaryColor),
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(15),
               color: Colors.white,
             ),
       child: ListTile(
+        visualDensity: VisualDensity.compact,
+
         selected: isSelected,
         dense: true,
         title: Text(Fmt.address(item.address)),
@@ -173,6 +175,7 @@ class _AddressInputFieldState extends State<AddressInputField> {
         ),
         leading: AddressIcon(
           item.address,
+          size: 38,
           svg: item.icon ?? _addressIconsMap[item.address],
         ),
       ),
@@ -186,13 +189,31 @@ class _AddressInputFieldState extends State<AddressInputField> {
       isFilteredOnline: true,
       showSearchBox: true,
       showSelectedItem: true,
-      autoFocusSearchBox: true,
-      searchBoxDecoration: InputDecoration(
-        border: OutlineInputBorder(),
-        contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
-        labelText: widget.label,
+      autoFocusSearchBox: false,
+      dropDownButton: Icon(
+        Icons.keyboard_arrow_down,
+        color: Colors.black45,
       ),
-      label: widget.label,
+      popupTitle: Padding(
+        padding: const EdgeInsets.only(top: 16, left: 8),
+        child: Text(
+          widget.label,
+          style: Theme.of(context).textTheme.caption,
+        ),
+      ),
+      popupShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20))),
+      dropdownSearchDecoration: InputDecoration(
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          contentPadding: EdgeInsets.fromLTRB(16, 4, 4, 4)),
+      searchBoxDecoration: InputDecoration(
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15))),
+        contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 15),
+        // labelText: widget.label,
+      ),
+      // label: widget.label,
       selectedItem: widget.initialValue,
       compareFn: (KeyPairData i, s) => i.pubKey == s?.pubKey,
       validator: (KeyPairData u) =>
