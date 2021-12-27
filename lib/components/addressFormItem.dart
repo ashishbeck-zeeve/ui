@@ -23,7 +23,7 @@ class AddressFormItem extends StatelessWidget {
                 margin: EdgeInsets.only(top: 4),
                 child: Text(
                   label,
-                  style: TextStyle(color: grey),
+                  style: TextStyle(),
                 ),
               )
             : Container(),
@@ -32,8 +32,7 @@ class AddressFormItem extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(8, 10, 8, 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(15)),
-            border:
-                Border.all(color: Theme.of(context).disabledColor, width: 0.5),
+            border: Border.all(width: 0.5),
           ),
           child: Row(
             children: <Widget>[
@@ -61,7 +60,7 @@ class AddressFormItem extends StatelessWidget {
               onTap == null
                   ? Container()
                   : Icon(
-                      Icons.arrow_forward_ios,
+                      Icons.keyboard_arrow_down,
                       size: 18,
                       color: grey,
                     )

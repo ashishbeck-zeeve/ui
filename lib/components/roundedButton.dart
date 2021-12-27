@@ -5,20 +5,24 @@ class RoundedButton extends StatelessWidget {
   RoundedButton({
     this.text,
     this.textColor,
+    this.textSize = 18,
     this.onPressed,
     this.icon,
     this.color,
     this.borderRadius = 12,
     this.submitting = false,
+    this.isIconRight = false,
   });
 
   final String text;
   final Color textColor;
+  final double textSize;
   final Function onPressed;
   final Widget icon;
   final Color color;
   final double borderRadius;
   final bool submitting;
+  final bool isIconRight;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,7 @@ class RoundedButton extends StatelessWidget {
     if (submitting) {
       row.add(CupertinoActivityIndicator());
     }
-    if (icon != null) {
+    if (icon != null && !isIconRight) {
       row.add(Container(
           padding: EdgeInsets.only(right: text == null ? 0 : 4), child: icon));
     }
@@ -36,17 +40,24 @@ class RoundedButton extends StatelessWidget {
           child: Text(
             text,
             style: textColor != null
-                ? TextStyle(color: textColor)
-                : Theme.of(context).textTheme.button,
+                ? TextStyle(color: textColor, fontSize: textSize)
+                : Theme.of(context)
+                    .textTheme
+                    .button
+                    .copyWith(fontSize: textSize),
             overflow: TextOverflow.ellipsis,
           )));
     }
+    if (icon != null && isIconRight) {
+      row.add(Container(
+          padding: EdgeInsets.only(right: text == null ? 0 : 4), child: icon));
+    }
 
     final bgColor = onPressed == null || submitting
-        ? Theme.of(context).dividerColor
+        ? (color ?? Theme.of(context).primaryColor).withOpacity(0.7)
         : (color ?? Theme.of(context).primaryColor);
     final gradientColor = onPressed == null || submitting
-        ? Theme.of(context).dividerColor
+        ? (color ?? Theme.of(context).primaryColor).withOpacity(0.7)
         : (color ?? Theme.of(context).accentColor);
 
     return RaisedButton(
@@ -54,24 +65,37 @@ class RoundedButton extends StatelessWidget {
       // color: color ?? Theme.of(context).primaryColor,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius)),
-      child: Ink(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [bgColor, gradientColor],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              stops: [0.1, 0.9],
+      child: Stack(
+        children: [
+          onPressed == null || submitting
+              ? Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.5),
+                  ),
+                  constraints: BoxConstraints(minHeight: 50.0, minWidth: 88),
+                )
+              : Container(),
+          Ink(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [bgColor, gradientColor],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  stops: [0.1, 0.9],
+                ),
+                // backgroundBlendMode: BlendMode.luminosity,
+                borderRadius: BorderRadius.circular(borderRadius)),
+            child: Container(
+              padding: EdgeInsets.only(left: 16, right: 16),
+              constraints: BoxConstraints(minHeight: 50.0, minWidth: 88),
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: row,
+              ),
             ),
-            borderRadius: BorderRadius.circular(borderRadius)),
-        child: Container(
-          padding: EdgeInsets.only(left: 16, right: 16),
-          constraints: BoxConstraints(minHeight: 50.0, minWidth: 88),
-          alignment: Alignment.center,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: row,
           ),
-        ),
+        ],
       ),
       onPressed: submitting ? null : onPressed,
     );

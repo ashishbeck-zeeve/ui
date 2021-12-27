@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:axiawallet_ui/components/animatedLoadingWheel.dart';
 import 'package:axiawallet_ui/components/iosBackButton.dart';
 import 'package:axiawallet_ui/components/transferSummary.dart';
 import 'package:flutter/cupertino.dart';
@@ -32,10 +33,8 @@ class TxConfirmPage extends StatefulWidget {
   _TxConfirmPageState createState() => _TxConfirmPageState();
 }
 
-class _TxConfirmPageState extends State<TxConfirmPage>
-    with SingleTickerProviderStateMixin {
+class _TxConfirmPageState extends State<TxConfirmPage> {
   bool _submitting = false;
-  AnimationController _controller;
 
   TxFeeEstimateResult _fee;
   bool _tipExpanded = false;
@@ -290,8 +289,7 @@ class _TxConfirmPageState extends State<TxConfirmPage>
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RotationTransition(
-              turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+            AnimatedLoadingWheel(
               child: SvgPicture.asset(
                 'packages/axiawallet_ui/assets/images/loading.svg',
                 width: 16,
@@ -312,36 +310,35 @@ class _TxConfirmPageState extends State<TxConfirmPage>
     ));
   }
 
-  void tempSnackbar(BuildContext context) {
-    ScaffoldMessenger.of(context).removeCurrentSnackBar();
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      backgroundColor: Theme.of(context).cardColor,
-      content: ListTile(
-        // leading: CupertinoActivityIndicator(),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RotationTransition(
-              turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
-              child: SvgPicture.asset(
-                'packages/axiawallet_ui/assets/images/loading.svg',
-                width: 16,
-                color: Color(0xffF2B02B),
-              ),
-            ),
-            SizedBox(
-              width: 8,
-            ),
-            Text(
-              "status",
-              style: TextStyle(color: Color(0xffF2B02B), fontSize: 16),
-            ),
-          ],
-        ),
-      ),
-      duration: Duration(seconds: 10),
-    ));
-  }
+  // void tempSnackbar(BuildContext context) {
+  //   ScaffoldMessenger.of(context).removeCurrentSnackBar();
+  //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //     backgroundColor: Theme.of(context).cardColor,
+  //     content: ListTile(
+  //       // leading: CupertinoActivityIndicator(),
+  //       title: Row(
+  //         mainAxisAlignment: MainAxisAlignment.center,
+  //         children: [
+  //           AnimatedLoadingWheel(
+  //             child: SvgPicture.asset(
+  //               'packages/axiawallet_ui/assets/images/loading.svg',
+  //               width: 16,
+  //               color: Color(0xffF2B02B),
+  //             ),
+  //           ),
+  //           SizedBox(
+  //             width: 8,
+  //           ),
+  //           Text(
+  //             "status",
+  //             style: TextStyle(color: Color(0xffF2B02B), fontSize: 16),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //     duration: Duration(seconds: 10),
+  //   ));
+  // }
 
   void _onTipChanged(double tip) {
     final decimals = (widget.plugin.networkState.tokenDecimals ?? [12])[0];
@@ -357,25 +354,6 @@ class _TxConfirmPageState extends State<TxConfirmPage>
       _tip = tip;
       _tipValue = value;
     });
-  }
-
-  @override
-  void initState() {
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 2500),
-      vsync: this,
-    );
-    _controller.repeat(period: Duration(milliseconds: 1500));
-    // _controller.addListener(() {
-    //   if (_controller.isCompleted) _controller.forward();
-    // });
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 
   @override
@@ -597,93 +575,107 @@ class _TxConfirmPageState extends State<TxConfirmPage>
                                   }
                                 },
                               ),
-                        Divider(
-                          indent: 16,
-                          endIndent: 16,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 8, bottom: 16),
-                          child: GestureDetector(
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.only(left: 16, top: 8, right: 16),
-                              child: Row(
-                                children: <Widget>[
-                                  Text(dicAcc['advanced']),
-                                  Spacer(),
-                                  Icon(
-                                    _tipExpanded
-                                        ? Icons.keyboard_arrow_up
-                                        : Icons.keyboard_arrow_down,
-                                    size: 20,
-                                    color:
-                                        Theme.of(context).unselectedWidgetColor,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            onTap: () {
-                              // clear state while advanced options closed
-                              if (_tipExpanded) {
-                                setState(() {
-                                  _tip = 0;
-                                  _tipValue = BigInt.zero;
-                                });
-                              }
-                              setState(() {
-                                _tipExpanded = !_tipExpanded;
-                              });
-                            },
-                          ),
-                        ),
-                        _tipExpanded
-                            ? Padding(
-                                padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
-                                child: Row(
-                                  children: <Widget>[
-                                    Container(
-                                      width: 64,
-                                      child: Text(dic['tx.tip']),
-                                    ),
-                                    Text(
-                                        '${Fmt.token(_tipValue, decimals)} $symbol'),
-                                    TapTooltip(
-                                      message: dic['tx.tip.brief'],
-                                      child: Icon(
-                                        Icons.info,
-                                        color: Theme.of(context)
-                                            .unselectedWidgetColor,
-                                        size: 16,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            : Container(),
-                        _tipExpanded
-                            ? Padding(
-                                padding: EdgeInsets.only(left: 16, right: 16),
-                                child: Row(
-                                  children: <Widget>[
-                                    Text('0'),
-                                    Expanded(
-                                      child: Slider(
-                                        min: 0,
-                                        max: 19,
-                                        divisions: 19,
-                                        value: _tip,
-                                        onChanged:
-                                            _submitting ? null : _onTipChanged,
-                                      ),
-                                    ),
-                                    Text('1')
-                                  ],
-                                ),
-                              )
-                            : Container(),
                       ],
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 8, bottom: 16),
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 16, top: 8, right: 16),
+                        child: Row(
+                          children: <Widget>[
+                            Text(dicAcc['advanced']),
+                            Expanded(
+                              child: Divider(
+                                indent: 8,
+                              ),
+                            ),
+                            Icon(
+                              _tipExpanded
+                                  ? Icons.keyboard_arrow_up
+                                  : Icons.keyboard_arrow_down,
+                              size: 20,
+                              color: Theme.of(context).unselectedWidgetColor,
+                            ),
+                          ],
+                        ),
+                      ),
+                      onTap: () {
+                        // clear state while advanced options closed
+                        if (_tipExpanded) {
+                          setState(() {
+                            _tip = 0;
+                            _tipValue = BigInt.zero;
+                          });
+                        }
+                        setState(() {
+                          _tipExpanded = !_tipExpanded;
+                        });
+                      },
+                    ),
+                  ),
+                  _tipExpanded
+                      ? Padding(
+                          padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                width: 64,
+                                child: Text(dic['tx.tip']),
+                              ),
+                              Spacer(),
+                              Text('${Fmt.token(_tipValue, decimals)} $symbol'),
+                              TapTooltip(
+                                message: dic['tx.tip.brief'],
+                                preferBelow: false,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        blurRadius: 20,
+                                        spreadRadius: 2),
+                                  ],
+                                ),
+                                textStyle: TextStyle(
+                                    color: Theme.of(context)
+                                        .unselectedWidgetColor),
+                                child: Icon(
+                                  Icons.info,
+                                  color:
+                                      Theme.of(context).unselectedWidgetColor,
+                                  size: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : Container(),
+                  _tipExpanded
+                      ? Padding(
+                          padding: EdgeInsets.only(left: 16, right: 16),
+                          child: Row(
+                            children: <Widget>[
+                              Text('0'),
+                              Expanded(
+                                child: Slider(
+                                  min: 0,
+                                  max: 19,
+                                  // divisions: 19,
+                                  value: _tip,
+                                  onChanged: _submitting ? null : _onTipChanged,
+                                ),
+                              ),
+                              Text('1')
+                            ],
+                          ),
+                        )
+                      : Container(),
                 ],
               ),
             ),

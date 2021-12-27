@@ -197,7 +197,7 @@ class _AddressInputFieldState extends State<AddressInputField> {
       popupTitle: Padding(
         padding: const EdgeInsets.only(top: 16, left: 8),
         child: Text(
-          widget.label,
+          widget.label ?? "",
           style: Theme.of(context).textTheme.caption,
         ),
       ),

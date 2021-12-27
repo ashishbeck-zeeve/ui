@@ -50,11 +50,17 @@ class AccountInfo extends StatelessWidget {
         accInfo != null ? Text(accInfo['accountIndex'] ?? '') : Container(),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [UI.accountDisplayName(address, accInfo, expand: false)],
+          children: [
+            UI.accountDisplayName(address, accInfo, expand: false, size: 18)
+          ],
         ),
         Padding(
           padding: EdgeInsets.only(bottom: 16, top: 8),
-          child: Text(Fmt.address(address)),
+          child: Text(
+              Fmt.address(
+                address,
+              ),
+              style: TextStyle(color: Colors.grey, fontSize: 14)),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

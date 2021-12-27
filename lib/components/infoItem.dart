@@ -10,6 +10,7 @@ class InfoItem extends StatelessWidget {
     this.crossAxisAlignment,
     this.flex = 1,
     this.lowTitle = false,
+    this.useExpanded = true,
   });
   final String title;
   final String content;
@@ -18,11 +19,13 @@ class InfoItem extends StatelessWidget {
   final CrossAxisAlignment crossAxisAlignment;
   final int flex;
   final bool lowTitle;
+  final bool useExpanded;
   @override
   Widget build(BuildContext context) {
-    final textColor = color ?? Theme.of(context).unselectedWidgetColor;
+    final textColor = color ?? Colors.black;
     final List<Widget> res = [
-      Text(title, style: TextStyle(fontSize: 12, color: titleColor)),
+      Text(title,
+          style: TextStyle(fontSize: 12, color: titleColor ?? Colors.grey)),
       Text(
         content ?? '-',
         style: TextStyle(
@@ -35,12 +38,17 @@ class InfoItem extends StatelessWidget {
     if (lowTitle) {
       res.reversed;
     }
-    return Expanded(
-      flex: flex,
-      child: Column(
-        crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.start,
-        children: lowTitle ? res.reversed.toList() : res,
-      ),
+    if (useExpanded)
+      return Expanded(
+        flex: flex,
+        child: Column(
+          crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.start,
+          children: lowTitle ? res.reversed.toList() : res,
+        ),
+      );
+    return Column(
+      crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
+      children: lowTitle ? res.reversed.toList() : res,
     );
   }
 }

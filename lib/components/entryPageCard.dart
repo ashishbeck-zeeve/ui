@@ -17,7 +17,7 @@ class EntryPageCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            width: 110,
+            width: 96,
             height: 110,
             decoration: BoxDecoration(
               color: color ?? Theme.of(context).primaryColor,
@@ -31,7 +31,7 @@ class EntryPageCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(left: 8, bottom: 8),
+                padding: EdgeInsets.only(left: 8, bottom: 4),
                 child: Text(
                   title,
                   style: Theme.of(context).textTheme.headline4,
@@ -39,7 +39,7 @@ class EntryPageCard extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.only(left: 8),
-                width: MediaQuery.of(context).size.width / 2,
+                // width: MediaQuery.of(context).size.width / 2,
                 child: Text(
                   brief,
                   style: TextStyle(

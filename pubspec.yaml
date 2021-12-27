@@ -20,10 +20,10 @@ dependencies:
       url: https://github.com/ashishbeck/qr.flutter.git
       ref: master
   flutter_qr_scan:
-#    path: ../flutter_qr_reader
+    # path: ../flutter_qr_reader
     git:
       url: https://github.com/ashishbeck/flutter_qr_reader.git
-      ref: a125851ca20038767ac4efa2e20d12116a390414
+      # ref: a125851ca20038767ac4efa2e20d12116a390414
   axiawallet_sdk:
     git:
      url: https://github.com/ashishbeck/sdk.git
@@ -35,6 +35,8 @@ dev_dependencies:
 dependency_overrides:
   axiawallet_sdk:
     path: ../sdk_fork
+  # flutter_qr_scan:
+  #   path: ../flutter_qr_reader
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -49,6 +51,9 @@ flutter:
    - assets/images/copy.png
    - assets/images/scan.svg
    - assets/images/loading.svg
+   - assets/images/loading_alt.svg
+   - assets/images/external_link.svg
+   - assets/images/charts.svg
    - assets/images/app.png
    - assets/images/receive_line.png
 

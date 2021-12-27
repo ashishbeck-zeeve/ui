@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:axiawallet_ui/utils/index.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class JumpToBrowserLink extends StatefulWidget {
   JumpToBrowserLink(this.url, {this.text, this.mainAxisAlignment});
@@ -44,8 +45,13 @@ class _JumpToBrowserLinkState extends State<JumpToBrowserLink> {
               style: TextStyle(color: Theme.of(context).primaryColor),
             ),
           ),
-          Icon(Icons.open_in_new,
-              size: 16, color: Theme.of(context).primaryColor)
+          SvgPicture.asset(
+            'packages/axiawallet_ui/assets/images/external_link.svg',
+            width: 16,
+            color: Theme.of(context).primaryColor,
+          ),
+          // Icon(Icons.open_in_new,
+          //     size: 16, color: Theme.of(context).primaryColor)
         ],
       ),
       onTap: _launchUrl,

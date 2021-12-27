@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:axiawallet_ui/utils/format.dart';
 
 class InfoItemRow extends StatelessWidget {
   InfoItemRow(
@@ -22,7 +23,7 @@ class InfoItemRow extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            content,
+            Fmt.capitalizeFirst(content),
             textAlign: TextAlign.right,
             style: color != null || colorPrimary
                 ? TextStyle(

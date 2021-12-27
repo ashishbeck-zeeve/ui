@@ -35,7 +35,8 @@ class PageWrapperWithBackground extends StatelessWidget {
               Color(0xff007cbd)
             ],
             stops: [0.1, 0.9],
-          )),
+          ),
+          ),
         ),
         Container(
           width: width,

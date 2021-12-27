@@ -1,3 +1,4 @@
+import 'package:axiawallet_ui/components/iosBackButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:axiawallet_sdk/plugin/index.dart';
@@ -35,6 +36,7 @@ class AccountQrCodePage extends StatelessWidget {
         elevation: 0,
         title: Text(dic['receive']),
         centerTitle: true,
+        leading: IOSBackButton(),
       ),
       body: SafeArea(
         child: ListView(
@@ -88,6 +90,7 @@ class AccountQrCodePage extends StatelessWidget {
                     child: RoundedButton(
                       text: I18n.of(context)
                           .getDic(i18n_full_dic_ui, 'common')['copy'],
+                      textSize: 16,
                       onPressed: () =>
                           UI.copyAndNotify(context, keyring.current.address),
                     ),

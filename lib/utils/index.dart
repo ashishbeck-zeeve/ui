@@ -21,7 +21,10 @@ class UI {
             I18n.of(context).getDic(i18n_full_dic_ui, 'common');
         return CupertinoAlertDialog(
           title: Container(),
-          content: Text('${dic['copy']} ${dic['success']}'),
+          content: Text(
+            '${dic['copy']} ${dic['success']}',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          ),
         );
       },
     );
@@ -41,6 +44,8 @@ class UI {
     Map accInfo, {
     bool expand = true,
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    double size,
+    Color color,
   }) {
     bool hasId = false;
     bool good = false;
@@ -79,9 +84,17 @@ class UI {
         expand
             ? Expanded(
                 child: Text(accountDisplayNameString(address, accInfo),
+                    style: TextStyle(
+                      fontSize: size ?? 16,
+                      color: color ?? Colors.black,
+                    ),
                     overflow: TextOverflow.ellipsis),
               )
             : Text(accountDisplayNameString(address, accInfo),
+                style: TextStyle(
+                  fontSize: size ?? 16,
+                  color: color ?? Colors.black,
+                ),
                 overflow: TextOverflow.ellipsis)
       ],
     );
