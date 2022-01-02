@@ -30,7 +30,7 @@ class InfoItem extends StatelessWidget {
         content ?? '-',
         style: TextStyle(
           fontSize: 14,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
           color: textColor,
         ),
       ),

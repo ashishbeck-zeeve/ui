@@ -23,7 +23,7 @@ class UI {
           title: Container(),
           content: Text(
             '${dic['copy']} ${dic['success']}',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
           ),
         );
       },

@@ -40,11 +40,14 @@ class RoundedButton extends StatelessWidget {
           child: Text(
             text,
             style: textColor != null
-                ? TextStyle(color: textColor, fontSize: textSize)
+                ? TextStyle(
+                    color: textColor,
+                    fontSize: textSize,
+                    fontWeight: FontWeight.w500)
                 : Theme.of(context)
                     .textTheme
                     .button
-                    .copyWith(fontSize: textSize),
+                    .copyWith(fontSize: textSize, fontWeight: FontWeight.w500),
             overflow: TextOverflow.ellipsis,
           )));
     }

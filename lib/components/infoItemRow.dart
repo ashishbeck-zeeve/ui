@@ -28,7 +28,7 @@ class InfoItemRow extends StatelessWidget {
             style: color != null || colorPrimary
                 ? TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                     color: color ?? Theme.of(context).primaryColor,
                   )
                 : Theme.of(context).textTheme.headline4,

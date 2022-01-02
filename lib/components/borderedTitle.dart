@@ -20,7 +20,7 @@ class BorderedTitle extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black87),
+              fontWeight: FontWeight.w500, fontSize: 20, color: Colors.black87),
         )
       ],
     );

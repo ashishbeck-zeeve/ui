@@ -28,7 +28,7 @@ class MainTabBar extends StatelessWidget {
                     children: [
                       Text(e,
                           style: TextStyle(
-                              fontSize: fontSize, fontWeight: FontWeight.bold)),
+                              fontSize: fontSize, fontWeight: FontWeight.w500)),
                       Container(
                         width: 24,
                         height: lineWidth,

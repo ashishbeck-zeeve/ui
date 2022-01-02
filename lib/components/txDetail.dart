@@ -33,7 +33,7 @@ class TxDetail extends StatelessWidget {
   List<Widget> _buildListView(BuildContext context) {
     final dic = I18n.of(context).getDic(i18n_full_dic_ui, 'common');
     final labelStyle = TextStyle(
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w500,
       color: Theme.of(context).unselectedWidgetColor,
     );
 
@@ -171,7 +171,7 @@ class TxDetailItem extends StatelessWidget {
               child: Text(
             i.label,
             style: TextStyle(
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w500,
               color: Theme.of(context).unselectedWidgetColor,
             ),
           )),

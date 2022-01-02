@@ -28,7 +28,7 @@ class OutlinedButtonSmall extends StatelessWidget {
         ),
         child: Text(content,
             style: TextStyle(
-                color: active ? white : grey, fontWeight: FontWeight.bold)),
+                color: active ? white : grey, fontWeight: FontWeight.w500)),
       ),
       onTap: onPressed,
     );
