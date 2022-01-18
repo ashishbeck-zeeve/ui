@@ -62,22 +62,22 @@ class AccountInfo extends StatelessWidget {
               ),
               style: TextStyle(color: Colors.grey, fontSize: 14)),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(right: 16),
-              child: JumpToBrowserLink(
-                'https://polkascan.io/$network/account/$address',
-                text: 'Polkascan',
-              ),
-            ),
-            JumpToBrowserLink(
-              'https://$network.subscan.io/account/$address',
-              text: 'Subscan',
-            ),
-          ],
-        ),
+//        Row(
+//          mainAxisAlignment: MainAxisAlignment.center,
+//          children: <Widget>[
+//            Padding(
+//              padding: EdgeInsets.only(right: 16),
+//              child: JumpToBrowserLink(
+//                'https://polkascan.io/$network/account/$address',
+//                text: 'Polkascan',
+//              ),
+//            ),
+//            JumpToBrowserLink(
+//              'https://$network.subscan.io/account/$address',
+//              text: 'Subscan',
+//            ),
+//          ],
+//        ),
         accInfo == null
             ? Container()
             : Container(

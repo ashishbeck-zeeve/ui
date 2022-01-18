@@ -21,7 +21,7 @@ class AddressIcon extends StatelessWidget {
       child: Container(
         width: size ?? 40,
         height: size ?? 40,
-        child: svg == null
+        child: true//svg == null
             ? Image.asset(
                 'packages/axiawallet_ui/assets/images/axia_avatar.png',
                 bundle: rootBundle,
