@@ -94,7 +94,7 @@ class TxDetail extends StatelessWidget {
     ));
 
     final pnLink = networkName == 'axia' || networkName == 'axialunar'
-        ? 'https://polkascan.io/${networkName.toLowerCase()}/transaction/$hash'
+        ? 'https://pscan.io/${networkName.toLowerCase()}/transaction/$hash'
         : null;
     final snLink =
         'https://${networkName.toLowerCase()}.subscan.io/extrinsic/$hash';
@@ -107,7 +107,7 @@ class TxDetail extends StatelessWidget {
     if (pnLink != null) {
       links.add(JumpToBrowserLink(
         pnLink,
-        text: 'Polkascan',
+        text: 'Pscan',
       ));
     }
     list.add(RoundedCard(

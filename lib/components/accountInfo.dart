@@ -68,8 +68,8 @@ class AccountInfo extends StatelessWidget {
 //            Padding(
 //              padding: EdgeInsets.only(right: 16),
 //              child: JumpToBrowserLink(
-//                'https://polkascan.io/$network/account/$address',
-//                text: 'Polkascan',
+//                'https://pscan.io/$network/account/$address',
+//                text: 'Pscan',
 //              ),
 //            ),
 //            JumpToBrowserLink(
