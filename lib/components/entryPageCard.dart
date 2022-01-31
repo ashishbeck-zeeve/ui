@@ -39,7 +39,9 @@ class EntryPageCard extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.only(left: 8),
-                // width: MediaQuery.of(context).size.width / 2,
+                width: MediaQuery.of(context).size.width -
+                    96 - // from svg widget
+                    32, //from parent padding of 16 in all sides
                 child: Text(
                   brief,
                   style: TextStyle(
