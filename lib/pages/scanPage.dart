@@ -1,13 +1,12 @@
+import 'package:axiawallet_sdk/plugin/index.dart';
+import 'package:axiawallet_sdk/storage/keyring.dart';
 import 'package:axiawallet_sdk/utils/i18n.dart';
+import 'package:axiawallet_ui/utils/format.dart';
 import 'package:axiawallet_ui/utils/i18n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_qr_scan/qrcode_reader_view.dart';
-
 import 'package:permission_handler/permission_handler.dart';
-import 'package:axiawallet_sdk/plugin/index.dart';
-import 'package:axiawallet_sdk/storage/keyring.dart';
-import 'package:axiawallet_ui/utils/format.dart';
 
 class ScanPage extends StatelessWidget {
   ScanPage(this.plugin, this.keyring);
@@ -29,6 +28,11 @@ class ScanPage extends StatelessWidget {
       String address = '';
       final String data = txt.trim();
       if (data != null) {
+        Navigator.of(context).pop(QRCodeResult(
+          type: QRCodeResultType.rawData,
+          rawData: data,
+        ));
+        return;
         List<String> ls = data.split(':');
 
         if (ls[0] == 'wc') {
