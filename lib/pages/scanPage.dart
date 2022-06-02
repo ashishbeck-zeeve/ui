@@ -28,11 +28,15 @@ class ScanPage extends StatelessWidget {
       String address = '';
       final String data = txt.trim();
       if (data != null) {
-        Navigator.of(context).pop(QRCodeResult(
-          type: QRCodeResultType.rawData,
-          rawData: data,
-        ));
-        return;
+        final Map tx = ModalRoute.of(context).settings.arguments;
+        if (tx != null && tx["isMcAddress"]) {
+          print('multicurrency wallet address detected');
+          Navigator.of(context).pop(QRCodeResult(
+            type: QRCodeResultType.rawData,
+            rawData: data,
+          ));
+          return;
+        }
         List<String> ls = data.split(':');
 
         if (ls[0] == 'wc') {
